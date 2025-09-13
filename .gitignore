@@ -1,0 +1,19 @@
+# Environment variables
+.env
+
+# Virtual environments
+.venv
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# IDE and OS files
+.vscode/
+.idea/
+*.DS_Store
+
+# Generated or local files
+syllabus_tracker.pdf
+syllabus_tracker.pptx
