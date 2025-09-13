@@ -11,7 +11,7 @@ try:
     GOOGLE_API_KEY = st.secrets["GOOGLE_API_KEY"]
     genai.configure(api_key=GOOGLE_API_KEY)
 except (KeyError, AttributeError):
-    st.warning("`GOOGLE_API_KEY` not found in Streamlit secrets. AI features will be disabled. Please add it to your secrets in the deployment settings.", icon="⚠️")
+    st.warning("`GOOGLE_API_KEY` not found in Streamlit secrets.", icon="⚠️")
     GOOGLE_API_KEY = None
 
 teachers = ['Anand Sir', 'Diptimayi Mam', 'Adiyata Sir', 'Shakahambhri Mam', 'Sambeet Sir']
@@ -181,8 +181,7 @@ status = solver.Solve(model)
 
 if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
     st.set_page_config(layout="wide")
-    st.title('Generated University Timetable')
-    st.success('Solution Found!')
+    st.title('VSSUT Timetable')
     hectic_days_to_improve = []
 
     full_schedule = defaultdict(list)
@@ -256,7 +255,6 @@ if status == cp_model.OPTIMAL or status == cp_model.FEASIBLE:
                 new_status = solver.Solve(model)
 
                 if new_status == cp_model.OPTIMAL or new_status == cp_model.FEASIBLE:
-                    st.success("Found an improved schedule!")
                     st.header(f'Improved Timetable for Batch {most_hectic["batch"]}')
 
                     new_full_schedule = defaultdict(list)
